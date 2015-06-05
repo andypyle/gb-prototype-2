@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Goldboot</title>
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<div class="gb-cluster">
+		<div class="gb-fade"></div>
+	</div>
+	<header>
+		<div class="gb-logo">
+			<div class="bwg-coming-soon">
+				<p>blackwhitegold 6.26.15</p>
+				<a href="#content" class="scroller"><i class="fa fa-chevron-down"></i></a>
+			</div>
+		</div>
+	</header>
+
+	<main id="content" ng-app="gbMusic">
+		<nav id="nav" class="row">
+			<div class="brandname">
+				<a href="#">Goldboot</a>
+			</div>
+			<div class="mobile-control">
+				<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
+			</div>
+			<ul class="navigation">
+				<li><a href="index.html#content">Home</a></li>
+				<li><a href="about.html#content">Us</a></li>
+				<li><a href="music.html">Music</a></li>
+				<li><a href="tour.html">Tour</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<section id="music" ng-controller="gbMusicCtrl">
+			<div class="row" plangular="{{ currentSet }}">
+				<div class="music-loading" ng-if="!track">
+					<i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+				</div>
+				<div class="row">
+					<div class="col album-title">
+						<h2>{{ playlist.title }}</h2>
+					</div>
+				</div>
+				<div class="row album">
+					<div class="col album-art">
+						<img ng-src="{{ track.artwork_url.replace('large.jpg', 't500x500.jpg')  }}" alt="{{ track.title }}" class="responsive-image" />
+					</div>
+					<div class="col album-tracks">
+						<ul class="album-tracklist">
+							<li class="row" ng-repeat="track in tracks">
+								<div class="col track-number">
+									{{ $index + 1 }}
+								</div>
+								<div class="col track-title">
+									{{ track.title }}
+								</div>
+								<div class="col track-play">
+									<a ng-click="playPause($index)"> 
+										<i ng-class="{'fa fa-play': player.playing !== track.src, 'fa fa-pause': player.playing === track.src, }"></i>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>				
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="row foot">
+			<div class="container-smaller">
+				<div class="col footer-left">
+					<p>Designed by Andy Pyle.</p>
+				</div>
+				<div class="col footer-center">
+					<ul class="social">
+						<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+						<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-2x"></i></a></li>
+						<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+					</ul>
+				</div>
+				<div class="col footer-right">
+					<p>&copy;2015 Goldboot</p>
+					<p class="credits-mobile">Designed by Andy Pyle.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/plangular/dist/plangular.min.js"></script>
+	<script src="bower_components/velocity/velocity.min.js"></script>
+	<script src="bower_components/velocity/velocity.ui.min.js"></script>
+
+	<script src="js/jq.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/musicCtrl.js"></script>
+	<script src="js/services/musicSvc.js"></script>	
+</body>
+</html>

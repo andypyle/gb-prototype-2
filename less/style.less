@@ -1,0 +1,203 @@
+// This file is to write your own styles in.
+// Everything will compile to css/lunar.css & lunar.min.css.
+// But first, let's import the base Lunar file.
+@import 'lunar-base.less';
+
+html,
+body {
+	height: 100%;
+	min-height: 100%;
+	color: #FFF;
+	background-color: @main-bg;
+	font-family: 'Josefin Sans', sans-serif;	
+}
+
+a {
+	color: @main-text;
+	text-decoration: none;
+	transition: all 100ms ease-in-out;
+	&:hover {
+		color: @gold;
+	}
+}
+
+
+
+// HEADER
+
+header {
+	.container-fullscreen;
+}
+
+
+// MAIN
+
+main {
+	.container-fullscreen;
+}
+
+
+// MAIN > SECTIONS
+
+main section {
+	.container-small;
+}
+
+
+// SECTION --- BLOG
+
+#blog {
+	// Blog base styles.
+	.centered-text;
+
+	.blog-post {
+		// Every blog post base style.
+		padding: 1rem 0;
+		
+		
+		.blog-post-header {
+			padding: 1rem 0;
+			.blog-post-title {
+				text-transform: uppercase;
+				font-weight: 400;
+				line-height: 1.75rem;
+			}
+			.blog-post-date {
+				color: darken(@main-text, 35%);
+				font-weight: 300;
+			}
+		}
+
+		.blog-post-content {
+			padding: 1rem 0;
+			p {
+				font-size: 1.5rem;
+			}
+		}
+
+		& + .blog-post {
+			border-top: 1px dotted fade(@main-text, 20%);
+		}
+	}
+
+	.images-post {
+		img {
+			width: 100%;
+			height: auto;
+			margin-bottom: 1.75rem;
+		}
+
+
+	}
+
+	.video-post {
+		// Posts with videos.
+		.video-container { 
+			display: block;
+			position: relative; 
+			padding-bottom: 56.25%; 
+			height: 0; 
+			overflow: hidden; 
+			max-width: 100%; 
+		} 
+
+		.video-container iframe, 
+		.video-container object, 
+		.video-container embed { 
+			position: absolute; 
+			top: 0; 
+			left: 0; 
+			width: 100%; 
+			height: 100%; 
+			border-radius: .6em;
+		}
+	}
+}
+
+
+// SECTION --- US
+
+#us {
+
+}
+
+
+// SECTION --- MUSIC
+
+#music {
+
+}
+
+
+// SECTION --- TOUR
+
+#tour {
+
+}
+
+
+// SECTION --- STORE
+// ----- ----- Opens in new tab. Hosted at bigcartel.
+
+
+// SECTION --- CONTACT
+
+#contact {
+
+}
+
+
+// FOOTER
+
+footer {
+	// Main footer container.
+	.container-fullscreen;
+
+	.foot {
+		// Footer subcontainer.
+		background-color: #0A0A0A;
+		color: darken(@main-text, 35%);
+
+		.foot-inner {
+			.container-smaller;
+			.centered-text;
+			padding: 1rem;
+
+			.footer-left {
+				padding: 0;
+				span {
+					font-size: 1.45rem;
+					font-weight: 300;
+					margin: 0;
+				}
+			}
+
+			.footer-right {
+				padding: 0;
+				margin: 0;
+
+				.social {
+					display: block;
+					.centered-text;
+					padding: 0;
+					margin: .55rem 0 0 0;
+
+					li {
+						display: inline-block;
+
+						a {
+							.centered-text;
+							padding: 0 .25rem;
+							color: darken(@main-text, 25%);
+							&:hover {
+								color: @gold;
+							}
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+}

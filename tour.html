@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Goldboot</title>
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<div class="gb-cluster">
+		<div class="gb-fade"></div>
+	</div>
+	<header>
+		<div class="gb-logo">
+			<div class="bwg-coming-soon">
+				<p>blackwhitegold 6.26.15</p>
+				<a href="#content" class="scroller"><i class="fa fa-chevron-down"></i></a>
+			</div>
+		</div>
+	</header>
+
+	<main id="content" ng-app="gbTour">
+		<nav id="nav" class="row">
+			<div class="brandname">
+				<a href="#">Goldboot</a>
+			</div>
+			<div class="mobile-control">
+				<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
+			</div>
+			<ul class="navigation">
+				<li><a href="index.html#content">Home</a></li>
+				<li><a href="about.html#content">Us</a></li>
+				<li><a href="music.html#content">Music</a></li>
+				<li><a href="tour.html">Tour</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<section id="tour" ng-controller="gbTourCtrl">
+			<div class="row" ng-repeat="show in shows" ng-click="showDetails($index)">
+				<div class="tour-date col">
+					{{ show.datetime | date }}
+				</div>
+				<div class="tour-venue col">
+					{{ show.venue.name }}
+				</div>
+				<div class="tour-tickets col">
+					<a href="#" ng-href="{{ show.ticket_url }}" target="_BLANK">TIX</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="row foot">
+			<div class="container-smaller">
+				<div class="col footer-left">
+					<p>Designed by Andy Pyle.</p>
+				</div>
+				<div class="col footer-center">
+					<ul class="social">
+						<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+						<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-2x"></i></a></li>
+						<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+					</ul>
+				</div>
+				<div class="col footer-right">
+					<p>&copy;2015 Goldboot</p>
+					<p class="credits-mobile">Designed by Andy Pyle.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/plangular/dist/plangular.min.js"></script>
+	<script src="bower_components/velocity/velocity.min.js"></script>
+	<script src="bower_components/velocity/velocity.ui.min.js"></script>
+
+	<script src="js/jq.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/tourCtrl.js"></script>
+	<script src="js/services/tourSvc.js"></script>	
+</body>
+</html>

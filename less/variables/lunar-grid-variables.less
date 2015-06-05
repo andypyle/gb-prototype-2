@@ -1,0 +1,14 @@
+// ========== Variables for grid.
+
+@con-columns:			12;
+@con-width:				percentage(1);
+
+@con-width-normal:		@con-width - percentage(.09);
+@con-width-small:		@con-width - percentage(.18);
+@con-width-smaller:		@con-width - percentage(.27);
+
+@col-gutter:			percentage(.03);
+@col-padding:			9px;
+@col-width-single:		(@con-width - (@col-gutter * (@con-columns - 1))) / @con-columns;
+
+@row-spacing:			@col-gutter / 2;

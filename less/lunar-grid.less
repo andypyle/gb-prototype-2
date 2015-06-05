@@ -1,0 +1,72 @@
+// ========== ========== Center mixin
+.centered {
+	margin: 0 auto;
+}
+
+// ========== ========== Container sizes
+.container-fullscreen {
+	.centered;
+	width: @con-width;
+}
+
+.container,
+.container-normal {
+	.centered;
+	width: @con-width-normal;
+}
+
+.container-small {
+	.centered;
+	width: @con-width-small;
+}
+
+.container-smaller {
+	.centered;
+	width: @con-width-smaller;
+}
+
+// ========== ========== Set box-sizing for columns & rows. This calculates the border, padding, and margin in to the height & width.
+.row,
+.col {
+	box-sizing: border-box;
+}
+
+// ========== ========== Set column position to relative and then float it left to horizontally position it.
+.col {
+	position: relative;
+	float: left;
+	padding: @col-padding;
+}
+
+// ========== ========== Optional: Add spacing between rows.
+.row + .row.spaced {
+	padding-top: @row-spacing;
+}
+
+// ========== ========== Clear fix on rows.
+.row:before,
+.row:after {
+	content: ' ';
+	display: table;
+}
+
+.row:after {
+	clear: both;
+}
+
+// ========== ========== If a column has a preceeding column, set it's left margin.
+.col + .col {
+	margin-left: @col-gutter;
+}
+
+// ========== ========== Loop to generate columns.
+.grid-columns (@i) when (@i > 0) {
+  .col@{i} {
+  	width: (@col-width-single * @i) + (@col-gutter * (@i - 1));
+  }
+
+  .grid-columns(@i - 1);
+}
+
+// ========== ========== Initiate grid-loop based on @con-columns.
+.grid-columns(@con-columns);
