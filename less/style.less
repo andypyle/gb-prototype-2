@@ -2,6 +2,7 @@
 // Everything will compile to css/lunar.css & lunar.min.css.
 // But first, let's import the base Lunar file.
 @import 'lunar-base.less';
+@import 'vendor/it-badge.less';
 
 html,
 body {
@@ -21,12 +22,152 @@ a {
 	}
 }
 
+// BACKGROUND-IMAGE
+
+.gb-cluster {
+	//.container-fullscreen;
+	height: 100vh;
+	width: 100vw;
+	display: block;
+
+	position: fixed;
+
+	background-image: url('../img/cluster.png');
+	background-position: 55% 50%;
+	background-size: 150%;
+	background-repeat: no-repeat;
+
+	.gb-fade {
+		background-color: fade(#000, 70%);
+		top: 0;
+		left: 0;
+		height: 100%;
+		min-height: 100%;
+		z-index: -5;
+	}	
+}
+
 
 
 // HEADER
 
 header {
 	.container-fullscreen;
+	display: block;
+	background-color: lighten(#000, 2%);
+	border-bottom: 1px dotted fade(@gold, 100%);
+	padding: 0;
+	position: fixed;
+	z-index: 50;
+
+	nav {
+		.header-left {
+			.col6;
+
+			.brandname {
+				//background-color: green;
+
+				a {
+					padding: 0;
+					margin: 0;
+					//line-height: 2rem;
+
+					img {
+						width: 100%;
+						height: auto;
+						margin: 0;
+						padding: .65rem;
+					}
+				}
+				
+				h1 {
+					margin: 0;
+					padding: .65rem;
+					line-height: 2rem;
+					text-transform: uppercase;
+					font-weight: 700;
+					font-size: 1.5rem;
+				}
+			}
+		}
+
+		.header-right {
+			.col6;
+			position: static;
+			text-align: right;
+
+			.mobile-control {
+				a {
+					display: block;
+					padding: .5rem;
+					margin: 0;
+					line-height: 1rem;
+				}
+			}
+
+			.navigation {
+				display: none;
+				position: absolute;
+				width: 100% !important;
+				left: 0;
+				right: 0;
+				background-color: black;
+				padding: 0;
+
+				.centered-text;
+
+				li {
+					display: block;
+					.centered-text;
+					padding: 0;
+					margin: 0;
+
+					&:after {
+						content: '';
+						display: block;
+						position: relative;
+						width: 75%;
+						margin: 0 auto;
+						border-bottom: 1px dotted @gold;
+						height: 2px;
+					}
+
+					a {
+						.centered-text;
+						display: block;
+						font-size: 2rem;
+						padding: .65rem;
+						font-weight: 300;
+						text-transform: uppercase;
+					}
+
+					.social-mobile {
+						display: block;
+						.centered-text;
+						padding: .5rem;
+						margin: 0;
+						li {
+							display: inline-block;
+							&:after {
+								content: '';
+								border: none;
+							}
+						}
+					}
+
+					&:last-child {
+						&:after {
+							content: '';
+							background: none;
+							border: none;
+						}
+					}
+				}
+			}
+		}
+		
+		
+	}
 }
 
 
@@ -34,6 +175,8 @@ header {
 
 main {
 	.container-fullscreen;
+	padding-top: 6rem;
+	position: relative;
 }
 
 
@@ -41,6 +184,76 @@ main {
 
 main section {
 	.container-small;
+}
+
+// SECTION --- BIGNEWS
+
+#bigNews {
+	display: block;
+	.centered-text;
+	position: relative;
+
+	background-color: fade(lighten(#000, 4%), 86%);
+	padding: 0;
+	font-weight: 200;
+
+	h2 {
+		text-transform: uppercase;
+		font-weight: 200;
+		font-size: 1.85rem;
+		padding: 1.75rem 0 .4rem 0;
+		line-height: .5rem;
+	}
+
+	span {
+		display: block;
+		font-size: 2.75rem;
+		margin: 0;
+		padding: 2rem;
+		line-height: 0;
+	}
+
+	.newAlbumBtns {
+		display: block;
+		margin: 0;
+		padding: 0 0 .5rem 0;
+		.centered-text;
+
+		li {
+			display: inline;
+			padding: 0;
+			margin: 0;
+			line-height: 0;
+			a {
+				display: inline-block;
+				padding: .5rem .6rem;
+				margin: 0;
+				line-height: 0;
+				i {
+					display: block;
+					font-size: 3rem;
+					padding: 0;
+					margin: 0;
+					position: relative;
+					line-height: 0 !important;
+
+					&.icon-badge_itunes-lrg {
+						font-size: 5.5rem;
+						//line-height: 6rem !important;
+						top: 1.4rem;
+					}
+				}
+			}
+		}
+	}
+
+	a.closeBigNews {
+			position: absolute;
+			right: 1rem;
+			bottom: .6rem;
+			font-size: 1.75rem;
+			color: fade(@main-text, 40%);
+	}
 }
 
 
@@ -118,21 +331,105 @@ main section {
 // SECTION --- US
 
 #us {
-
+	p {
+		font-size: 1.25rem !important;
+	}
 }
 
+
+// LOADING ICON
+
+.loading {
+	.centered-text;
+	margin-top: 20vh;
+}
 
 // SECTION --- MUSIC
 
 #music {
+	.album-tracks {
+		.container-fullscreen;
+		.album-tracklist {
+			.container-fullscreen;
+			padding: 0;
+			font-size: 1.2rem;
 
+			li {
+				display: block;
+				.track-number {
+					.col2;
+				}
+
+				.track-title {
+					.col9;
+				}
+
+				.track-play {
+					.col1;
+					margin-left: 0 !important;
+				}
+			}
+		}
+	}
 }
 
 
 // SECTION --- TOUR
 
 #tour {
+	font-size: 1.2rem;
 
+	.tourInfo {
+		.centered-text;
+		padding-bottom: .5rem;
+		border-bottom: 1px dotted fade(@gold, 65%);
+		span {
+			font-size: 1rem;
+			font-weight: 300;
+			color: fade(#FFF, 75%);
+		}
+	}
+
+	.show {
+		padding: .5rem 0;
+		border-bottom: 1px dotted fade(@gold, 65%);
+		&:last-child {
+			border: none;
+		}
+		.show-date {
+			.col4;
+		}
+
+		.show-city {
+			.col6;
+		}
+
+		.show-tickets {
+			.col2;
+			//margin-left: 0;
+		}
+
+		.more-info {
+			font-size: 1.2rem;
+			font-weight: 300;
+			.centered-text;
+
+			.show-venue {
+				.col8;
+				.centered-text;
+			}
+
+			.show-more {
+				.col4;
+				a {
+					font-weight: 300;
+				}
+			}
+		} 
+
+		
+	}
+	
 }
 
 

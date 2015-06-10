@@ -13,40 +13,64 @@
 		<div class="gb-fade"></div>
 	</div>
 	<header>
-		<div class="gb-logo">
-			<div class="bwg-coming-soon">
-				<p>blackwhitegold 6.26.15</p>
-				<a href="#content" class="scroller"><i class="fa fa-chevron-down"></i></a>
+		<nav id="nav" class="row">
+			<div class="col header-left">
+				<div class="brandname">
+					<a href="#"><img src="img/gb-logo-cropped.png" alt="Goldboot"></a>
+				</div>	
 			</div>
-		</div>
+			<div class="col header-right">
+				<div class="mobile-control">
+					<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
+				</div>
+				<ul class="navigation">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">Us</a></li>
+					<li><a href="music.html">Music</a></li>
+					<li><a href="tour.html">Tour</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li>
+						<ul class="social-mobile">
+							<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+							<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-lg"></i></a></li>
+							<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-lg"></i></a></li>
+							<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-lg"></i></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>			
+		</nav>
 	</header>
 
 	<main id="content" ng-app="gbTour">
-		<nav id="nav" class="row">
-			<div class="brandname">
-				<a href="#">Goldboot</a>
-			</div>
-			<div class="mobile-control">
-				<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
-			</div>
-			<ul class="navigation">
-				<li><a href="index.html#content">Home</a></li>
-				<li><a href="about.html#content">Us</a></li>
-				<li><a href="music.html#content">Music</a></li>
-				<li><a href="tour.html">Tour</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</nav>
 		<section id="tour" ng-controller="gbTourCtrl">
-			<div class="row" ng-repeat="show in shows" ng-click="showDetails($index)">
-				<div class="tour-date col">
-					{{ show.datetime | date }}
+			<div class="row">
+				<div class="tourInfo">
+					<span>Click or tap on show for more information.</span>
 				</div>
-				<div class="tour-venue col">
-					{{ show.venue.name }}
+			</div>
+			<div class="loading" ng-if="!showsLoaded">
+				<i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+			</div>
+			<div class="row show" ng-repeat="show in shows" ng-click="showDetails($index)" ng-cloak>
+				<div class="row">
+					<div class="show-date col">
+						<span>{{ show.datetime | date:'MM.dd.yy' }}</span>
+					</div>
+					<div class="show-city col">
+						<span>{{ show.venue.city }}, {{ show.venue.region }}</span>
+					</div>
+					<div class="show-tickets col">
+						<a href="#" ng-href="{{ show.ticket_url }}" target="_BLANK"><i class="fa fa-ticket fa-lg"></i></a>
+					</div>
 				</div>
-				<div class="tour-tickets col">
-					<a href="#" ng-href="{{ show.ticket_url }}" target="_BLANK">TIX</a>
+				<div class="row more-info" ng-if="details === $index">
+					<div class="col show-venue">
+						<span>{{ show.venue.name }}</span>
+					</div>
+					<div class="col show-more">
+						<a href="#" ng-href="{{ show.url }}" target="_BLANK">More <i class="fa fa-external-link"></i></a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -54,22 +78,18 @@
 
 	<footer>
 		<div class="row foot">
-			<div class="container-smaller">
-				<div class="col footer-left">
-					<p>Designed by Andy Pyle.</p>
+			<div class="foot-inner">
+				<div class="row footer-left">
+					<span>&copy;2015 Goldboot</span>
 				</div>
-				<div class="col footer-center">
+				<div class="row footer-right">
 					<ul class="social">
 						<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-2x"></i></a></li>
 						<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-2x"></i></a></li>
 						<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-2x"></i></a></li>
 						<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-2x"></i></a></li>
 					</ul>
-				</div>
-				<div class="col footer-right">
-					<p>&copy;2015 Goldboot</p>
-					<p class="credits-mobile">Designed by Andy Pyle.</p>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</footer>
