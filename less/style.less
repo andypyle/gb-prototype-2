@@ -37,6 +37,10 @@ a {
 	background-size: 150%;
 	background-repeat: no-repeat;
 
+	@media only screen and (min-width:@large){
+			background-size: 80%;
+		}
+
 	.gb-fade {
 		background-color: fade(#000, 70%);
 		top: 0;
@@ -54,18 +58,34 @@ a {
 header {
 	.container-fullscreen;
 	display: block;
-	background-color: lighten(#000, 2%);
+	//background-color: lighten(#000, 2%);
+	background-color: #000;
 	border-bottom: 1px dotted fade(@gold, 25%);
 	padding: 0;
 	position: fixed;
 	z-index: 50;
 
+	@media only screen and (min-width:@large){
+			position: relative;
+			background: transparent;
+			border: 0;
+		}
+
 	nav {
 		.header-left {
 			.col6;
 
+			@media only screen and (min-width:@large){
+				.container-fullscreen;
+				margin: 0;
+				padding: 0;
+			}
+
 			.brandname {
 				//background-color: green;
+				@media only screen and (min-width:@large){
+					.centered-text;
+				}
 
 				a {
 					padding: 0;
@@ -77,16 +97,16 @@ header {
 						height: auto;
 						margin: 0;
 						padding: .65rem;
+
+						@media only screen and (min-width:@medium){
+							width: 50%;
+							padding: .5em;
+						}
+						@media only screen and (min-width:@large){
+							width: 85%;
+							padding: .5em;
+						}
 					}
-				}
-				
-				h1 {
-					margin: 0;
-					padding: .65rem;
-					line-height: 2rem;
-					text-transform: uppercase;
-					font-weight: 700;
-					font-size: 1.5rem;
 				}
 			}
 		}
@@ -96,12 +116,28 @@ header {
 			position: static;
 			text-align: right;
 
+			@media only screen and (min-width:@large){
+				.container-fullscreen;
+				text-align: center;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+
 			.mobile-control {
 				a {
 					display: block;
-					padding: .5rem;
+					padding: .5em .5em 0 0;
 					margin: 0;
-					line-height: 1rem;
+					line-height: 3 !important;
+					font-size: 3.8vmin;
+
+					@media only screen and (min-width:@medium){
+						
+					}
+				}
+
+				@media only screen and (min-width:@large){
+					display: none;
 				}
 			}
 
@@ -109,7 +145,7 @@ header {
 				display: none;
 				position: absolute;
 				width: 100% !important;
-				//top: 8rem;
+				margin-top: -.5rem;
 				left: 0;
 				right: 0;
 				background-color: black;
@@ -119,12 +155,23 @@ header {
 
 				.centered-text;
 
+				@media only screen and (min-width:@large){
+					display: block;
+					background: transparent;
+					box-shadow: none;
+					position: static;
+				}
+
 				li {
 					display: block;
 					.centered-text;
 					padding: 0;
 					margin: 0;
 					line-height: 1.5;
+
+					@media only screen and (min-width:@medium){
+						display: inline-block !important;
+					}
 
 					&:after {
 						content: '';
@@ -136,6 +183,10 @@ header {
 						padding: .35rem 0 0 0;
 						border-top: 1px dotted fade(@gold, 25%);
 						height: 0px;
+
+						@media only screen and (min-width:@medium){
+							display: none;
+						}
 					}
 
 					a {
@@ -147,24 +198,53 @@ header {
 						font-weight: 300;
 						text-transform: uppercase;
 						line-height: 1.65;
+
+						@media only screen and (min-width:@medium){
+							padding: 0 1.25rem;
+							font-size: 1.5rem;
+						}
 					}
 
 					.social-mobile {
 						display: block;
 						.centered-text;
-						padding: .5rem;
+						padding: .5rem 0;
 						margin: 0;
+						width: 100%;
+						
 						li {
 							display: inline-block;
 
 							a {
 								display: block;
 								padding: 0 .5rem;
+								@media only screen and (min-width:@large){
+									display: inline;
+									font-size: 2em;
+								}
+
+								.icon-badge_itunes-lrg {
+									display: inline-block;
+									font-size: 5rem !important;
+									transform: translateY(1.75rem);
+									line-height: 0;
+								}								
 							}
 
 							&:after {
 								content: '';
 								border: none;
+							}
+
+							@media only screen and (min-width:@large){
+								display: inline;
+							}
+
+							&.notMobile {
+								display: none;
+								@media only screen and (min-width:@large){
+									display: inline-block;
+								}
 							}
 						}
 					}
@@ -175,12 +255,19 @@ header {
 							background: none;
 							border: none;
 						}
+						
+						@media only screen and (min-width:@large){
+							&:after {
+								display: none;
+							}
+							&.topSocial {
+								display: block !important;
+							}
+						}
 					}
 				}
 			}
-		}
-		
-		
+		}		
 	}
 }
 
@@ -189,13 +276,24 @@ header {
 
 main {
 	.container-fullscreen;
-	padding-top: 6rem;
+	padding-top: 6em;		// 8 medium, 10 large
 	padding-bottom: 8rem;
 	position: relative;
 	display: block;
 	height: 100%;
-	min-height: 100%;
+	min-height: 100%;	
 
+	@media only screen and (min-width:@largest){
+		padding-top: 0 !important;
+	}
+
+	@media only screen and (min-width:@large){
+		padding-top: 2rem !important;
+	}
+
+	@media only screen and (min-width:@medium){
+		padding-top: 9rem;
+	}
 }
 
 .bigContainer {
@@ -228,6 +326,12 @@ main section {
 	border: 1px dotted fade(@gold, 25%);
 	border-radius: .3rem;
 	box-shadow: 0px 10px 32px fade(@gold, 25%);
+
+	@media only screen and (min-width:@large){
+		display: none;
+	}
+
+
 
 	h2 {
 		text-transform: uppercase;
@@ -331,6 +435,10 @@ main section {
 			width: 100%;
 			height: auto;
 			margin-bottom: 1.75rem;
+
+			@media only screen and (min-width:@medium){
+				width: 60%;
+			}
 		}
 
 
@@ -373,6 +481,20 @@ main section {
 				text-transform: uppercase;
 			}
 		}
+
+		.gb-bio-left {
+			@media only screen and (min-width:@medium){
+				.col6;
+				.col;
+			}
+		}
+
+		.gb-bio-right {
+			@media only screen and (min-width:@medium){
+				.col6;
+				.col;
+			}
+		}
 		p {
 			font-size: 1.25rem !important;
 		}
@@ -403,8 +525,20 @@ main section {
 			padding: 0;
 		}
 	}
+
+	.album-art {
+		@media only screen and (min-width:@medium){
+			.col6;
+			.col;
+		}
+	}
 	.album-tracks {
 		.container-fullscreen;
+
+		@media only screen and (min-width:@medium){
+			.col6;
+			.col;
+		}
 		.album-tracklist {
 			.container-fullscreen;
 			padding: 0;
@@ -449,6 +583,8 @@ main section {
 	.show {
 		padding: .5rem 0;
 		border-bottom: 1px dotted fade(@gold, 65%);
+		display: block;
+
 		&:last-child {
 			border: none;
 		}
@@ -481,9 +617,13 @@ main section {
 					font-weight: 300;
 				}
 			}
-		} 
+		} 		
+	}
 
-		
+	.show:hover {
+		background-color: fade(@gold, 5%);
+		transition: all 250ms ease-in-out;
+		cursor: pointer;
 	}
 	
 }
@@ -575,10 +715,52 @@ main section {
 				i {
 					padding-left: .25rem;
 				}
-
-				&:focus {
+				
+				&:hover,
+				:focus {
 					color: @gold;
 					border-bottom: 1px solid fade(@gold, 90%);
+					box-shadow: 0 8px 18px fade(@gold, 30%);
+				}
+			}
+		}
+
+		.contact-form-reason {
+			@media only screen and (min-width:@medium){
+				.col6;
+				.col;
+			}
+		}
+
+		.contact-form-name {
+			@media only screen and (min-width:@medium){
+				.col6;
+				.col;
+				margin-left: 1rem;
+			}
+		}
+
+		.contact-form-email {
+			@media only screen and (min-width:@medium){
+				.col12;
+				.col;
+			}
+		}
+
+		.contact-form-message {
+			@media only screen and (min-width:@medium){
+				.col12;
+				.col;
+			}
+		}
+
+		.contact-form-send {
+			@media only screen and (min-width:@medium){
+				.col12;
+				.col;
+				button {
+					.col6;
+					float: right;
 				}
 			}
 		}
