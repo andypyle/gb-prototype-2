@@ -9,93 +9,95 @@
 	<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-	<div class="gb-cluster">
-		<div class="gb-fade"></div>
-	</div>
-	<header>
-		<nav id="nav" class="row">
-			<div class="col header-left">
-				<div class="brandname">
-					<a href="#"><img src="img/gb-logo-cropped.png" alt="Goldboot"></a>
-				</div>	
-			</div>
-			<div class="col header-right">
-				<div class="mobile-control">
-					<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
-				</div>
-				<ul class="navigation">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">Us</a></li>
-					<li><a href="music.html">Music</a></li>
-					<li><a href="tour.html">Tour</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li>
-						<ul class="social-mobile">
-							<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-lg"></i></a></li>
-							<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-lg"></i></a></li>
-							<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-lg"></i></a></li>
-							<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-lg"></i></a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>			
-		</nav>
-	</header>
-
-	<main id="content" ng-app="gbMusic">
-		<section id="music" ng-controller="gbMusicCtrl">
-			<div class="row" plangular="{{ currentSet }}" ng-cloak>
-				<div class="loading" ng-if="!track">
-					<i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
-				</div>
-				<div class="row">
-					<div class="col album-title" ng-cloak>
-						<h2>{{ playlist.title }}</h2>
-					</div>
-				</div>
-				<div class="row album" ng-cloak>
-					<div class="col album-art">
-						<img ng-src="{{ track.artwork_url.replace('large.jpg', 't500x500.jpg')  }}" alt="{{ track.title }}" class="responsive-image" />
-					</div>
-					<div class="col album-tracks" ng-cloak>
-						<ul class="album-tracklist">
-							<li class="row" ng-repeat="track in tracks">
-								<div class="col track-number">
-									{{ $index + 1 }}
-								</div>
-								<div class="col track-title">
-									{{ track.title }}
-								</div>
-								<div class="col track-play">
-									<a ng-click="playPause($index)"> 
-										<i ng-class="{'fa fa-play': player.playing !== track.src, 'fa fa-pause': player.playing === track.src, }"></i>
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>				
-			</div>
-		</section>
-	</main>
-
-	<footer>
-		<div class="row foot">
-			<div class="foot-inner">
-				<div class="row footer-left">
-					<span>&copy;2015 Goldboot</span>
-				</div>
-				<div class="row footer-right">
-					<ul class="social">
-						<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-2x"></i></a></li>
-						<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-						<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-2x"></i></a></li>
-						<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-2x"></i></a></li>
-					</ul>
-				</div>				
-			</div>
+	<div class="bigContainer">
+		<div class="gb-cluster">
+			<div class="gb-fade"></div>
 		</div>
-	</footer>
+		<header>
+			<nav id="nav" class="row">
+				<div class="col header-left">
+					<div class="brandname">
+						<a href="#"><img src="img/gb-logo-cropped.png" alt="Goldboot"></a>
+					</div>	
+				</div>
+				<div class="col header-right">
+					<div class="mobile-control">
+						<a href="#" class="mob-nav"><i class="fa fa-bars fa-2x"></i></a>
+					</div>
+					<ul class="navigation">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">Us</a></li>
+						<li><a href="music.html">Music</a></li>
+						<li><a href="tour.html">Tour</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li>
+							<ul class="social-mobile">
+								<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+								<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-lg"></i></a></li>
+								<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-lg"></i></a></li>
+								<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-lg"></i></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</header>
+
+		<main id="content" ng-app="gbMusic">
+			<section id="music" ng-controller="gbMusicCtrl">
+				<div class="row" plangular="{{ currentSet }}" ng-cloak>
+					<div class="loading" ng-if="!track">
+						<i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+					</div>
+					<div class="row">
+						<div class="col album-title" ng-cloak>
+							<h2>{{ playlist.title }}</h2>
+						</div>
+					</div>
+					<div class="row album" ng-cloak>
+						<div class="col album-art">
+							<img ng-src="{{ track.artwork_url.replace('large.jpg', 't500x500.jpg')  }}" alt="{{ track.title }}" class="responsive-image" />
+						</div>
+						<div class="col album-tracks" ng-cloak>
+							<ul class="album-tracklist">
+								<li class="row" ng-repeat="track in tracks">
+									<div class="col track-number">
+										{{ $index + 1 }}
+									</div>
+									<div class="col track-title">
+										{{ track.title }}
+									</div>
+									<div class="col track-play">
+										<a ng-click="playPause($index)"> 
+											<i ng-class="{'fa fa-play': player.playing !== track.src, 'fa fa-pause': player.playing === track.src, }"></i>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>				
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="row foot">
+				<div class="foot-inner">
+					<div class="row footer-left">
+						<span>&copy;2015 Goldboot</span>
+					</div>
+					<div class="row footer-right">
+						<ul class="social">
+							<li><a href="http://www.facebook.com/goldbootmusic" target="_BLANK"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+							<li><a href="http://www.twitter.com/goldbootmusic" target="_BLANK"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+							<li><a href="http://www.instagram.com/goldbootmusic" target="_BLANK"><i class="fa fa-instagram fa-2x"></i></a></li>
+							<li><a href="http://www.youtube.com/goldboottv" target="_BLANK"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+						</ul>
+					</div>				
+				</div>
+			</div>
+		</footer>
+	</div>
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>

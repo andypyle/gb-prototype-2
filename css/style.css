@@ -568,7 +568,7 @@ header {
   width: 100%;
   display: block;
   background-color: #050505;
-  border-bottom: 1px dotted #e2ef70;
+  border-bottom: 1px dotted rgba(226, 239, 112, 0.25);
   padding: 0;
   position: fixed;
   z-index: 50;
@@ -612,7 +612,9 @@ header nav .header-right .navigation {
   left: 0;
   right: 0;
   background-color: black;
-  padding: 0;
+  padding: .5rem 0 0 0;
+  z-index: 30;
+  box-shadow: 0px 0.5rem 12px rgba(0, 0, 0, 0.55);
   text-align: center;
 }
 header nav .header-right .navigation li {
@@ -620,23 +622,28 @@ header nav .header-right .navigation li {
   text-align: center;
   padding: 0;
   margin: 0;
+  line-height: 1.5;
 }
 header nav .header-right .navigation li:after {
   content: '';
   display: block;
   position: relative;
+  bottom: 0;
   width: 75%;
   margin: 0 auto;
-  border-bottom: 1px dotted #e2ef70;
-  height: 2px;
+  padding: .35rem 0 0 0;
+  border-top: 1px dotted rgba(226, 239, 112, 0.25);
+  height: 0px;
 }
 header nav .header-right .navigation li a {
   text-align: center;
   display: block;
   font-size: 2rem;
-  padding: .65rem;
+  padding: 0;
+  margin: 0;
   font-weight: 300;
   text-transform: uppercase;
+  line-height: 1.65;
 }
 header nav .header-right .navigation li .social-mobile {
   display: block;
@@ -646,6 +653,10 @@ header nav .header-right .navigation li .social-mobile {
 }
 header nav .header-right .navigation li .social-mobile li {
   display: inline-block;
+}
+header nav .header-right .navigation li .social-mobile li a {
+  display: block;
+  padding: 0 .5rem;
 }
 header nav .header-right .navigation li .social-mobile li:after {
   content: '';
@@ -660,11 +671,24 @@ main {
   margin: 0 auto;
   width: 100%;
   padding-top: 6rem;
+  padding-bottom: 8rem;
   position: relative;
+  display: block;
+  height: 100%;
+  min-height: 100%;
+}
+.bigContainer {
+  min-height: 100%;
+  display: block;
+  position: relative;
+  margin-bottom: -4em;
 }
 main section {
   margin: 0 auto;
   width: 82%;
+  height: 100%;
+  min-height: 100%;
+  display: block;
 }
 #bigNews {
   display: block;
@@ -673,6 +697,9 @@ main section {
   background-color: rgba(10, 10, 10, 0.86);
   padding: 0;
   font-weight: 200;
+  border: 1px dotted rgba(226, 239, 112, 0.25);
+  border-radius: .3rem;
+  box-shadow: 0px 10px 32px rgba(226, 239, 112, 0.25);
 }
 #bigNews h2 {
   text-transform: uppercase;
@@ -702,21 +729,20 @@ main section {
 }
 #bigNews .newAlbumBtns li a {
   display: inline-block;
-  padding: .5rem .6rem;
+  padding: .75rem .6rem;
   margin: 0;
   line-height: 0;
 }
 #bigNews .newAlbumBtns li a i {
   display: block;
   font-size: 3rem;
-  padding: 0;
   margin: 0;
   position: relative;
   line-height: 0 !important;
 }
 #bigNews .newAlbumBtns li a i.icon-badge_itunes-lrg {
   font-size: 5.5rem;
-  top: 1.4rem;
+  line-height: .35 !important;
 }
 #bigNews a.closeBigNews {
   position: absolute;
@@ -727,6 +753,7 @@ main section {
 }
 #blog {
   text-align: center;
+  margin-top: 1rem;
 }
 #blog .blog-post {
   padding: 1rem 0;
@@ -775,12 +802,33 @@ main section {
   height: 100%;
   border-radius: .6em;
 }
-#us p {
+#us .gb-bio .gb-bio-header {
+  text-align: center;
+  width: 100%;
+}
+#us .gb-bio .gb-bio-header h2 {
+  display: block;
+  text-transform: uppercase;
+}
+#us .gb-bio p {
   font-size: 1.25rem !important;
 }
 .loading {
   text-align: center;
   margin-top: 20vh;
+}
+#music .album-title {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+#music .album-title h2 {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 0;
 }
 #music .album-tracks {
   margin: 0 auto;
@@ -849,9 +897,94 @@ main section {
 #tour .show .more-info .show-more a {
   font-weight: 300;
 }
+#contact {
+  width: 89% !important;
+}
+#contact .gb-contact-header {
+  width: 100%;
+  text-align: center;
+}
+#contact .gb-contact-header h2 {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+#contact #contact-form [class^='contact-form-'] {
+  width: 100%;
+  padding: 0;
+}
+#contact #contact-form [class^='contact-form-'] label {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+#contact #contact-form [class^='contact-form-'] select,
+#contact #contact-form [class^='contact-form-'] input,
+#contact #contact-form [class^='contact-form-'] textarea,
+#contact #contact-form [class^='contact-form-'] button {
+  display: block !important;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  width: 100%;
+  padding: .8rem;
+  border: 0;
+  box-shadow: 0;
+  background: transparent;
+  font-size: 1.25rem;
+  border-radius: .3rem;
+  outline: 0;
+  -webkit-transition: all 250ms ease-in-out;
+     -moz-transition: all 250ms ease-in-out;
+          transition: all 250ms ease-in-out;
+}
+#contact #contact-form [class^='contact-form-'] select:focus,
+#contact #contact-form [class^='contact-form-'] input:focus,
+#contact #contact-form [class^='contact-form-'] textarea:focus,
+#contact #contact-form [class^='contact-form-'] button:focus {
+  box-shadow: 0 8px 18px rgba(226, 239, 112, 0.3);
+}
+#contact #contact-form [class^='contact-form-'] input,
+#contact #contact-form [class^='contact-form-'] textarea {
+  border-bottom: 2px solid white;
+  border-radius: .6rem;
+  font-weight: 300;
+}
+#contact #contact-form [class^='contact-form-'] input:focus,
+#contact #contact-form [class^='contact-form-'] textarea:focus {
+  border-bottom: 2px solid #e2ef70;
+  background-color: rgba(15, 15, 15, 0.25);
+}
+#contact #contact-form [class^='contact-form-'] select,
+#contact #contact-form [class^='contact-form-'] input,
+#contact #contact-form [class^='contact-form-'] textarea {
+  margin-bottom: 1rem;
+}
+#contact #contact-form [class^='contact-form-'] select {
+  background-color: #FFF;
+  color: #111;
+  border: 1px dotted rgba(226, 239, 112, 0.4);
+  position: relative;
+}
+#contact #contact-form [class^='contact-form-'] button {
+  background-color: #0f0f0f;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border: 1px solid rgba(226, 239, 112, 0);
+}
+#contact #contact-form [class^='contact-form-'] button i {
+  padding-left: .25rem;
+}
+#contact #contact-form [class^='contact-form-'] button:focus {
+  color: #e2ef70;
+  border-bottom: 1px solid rgba(226, 239, 112, 0.9);
+}
 footer {
   margin: 0 auto;
   width: 100%;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 footer .foot {
   background-color: #0A0A0A;
@@ -862,6 +995,8 @@ footer .foot .foot-inner {
   width: 73%;
   text-align: center;
   padding: 1rem;
+  display: block;
+  height: 4em;
 }
 footer .foot .foot-inner .footer-left {
   padding: 0;
